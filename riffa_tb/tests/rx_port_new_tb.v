@@ -4,7 +4,7 @@ module rx_port_new_tb;
 
 `include "functions.vh"
 
-	parameter C_DATA_WIDTH = 9'd128;
+	parameter C_DATA_WIDTH = 10'd256;
 	parameter C_MAX_READ_REQ = 2;					// Max read: 000=128B, 001=256B, 010=512B, 011=1024B, 100=2048B, 101=4096B
 	// Local parameters
 	parameter C_RX_FIFO_DEPTH = 1024;
@@ -226,7 +226,7 @@ rx_port_new #(
 
 	always @ (posedge CLK) begin
 		if (rRst) begin
-			ENG_DATA <= 128'h0;
+			ENG_DATA <= 512'h0;
 			SG_RX_DATA_EN <= 3'h0;
 			SG_RX_DONE <= 0;
 			SG_RX_ERR <= 0;
@@ -235,9 +235,12 @@ rx_port_new #(
 			//case (iPktCount)
 			
 			//0 : begin
-				SG_RX_DATA_EN <= {$random}%5;
+				SG_RX_DATA_EN <= {$random}%(C_DATA_WIDTH/32+1);
 				SG_RX_DONE <= {$random}%2;
-				ENG_DATA <= {$unsigned($random), $unsigned($random), $unsigned($random), $unsigned($random)};
+				ENG_DATA <= {$unsigned($random), $unsigned($random), $unsigned($random), $unsigned($random), 
+					     $unsigned($random), $unsigned($random), $unsigned($random), $unsigned($random),
+					     $unsigned($random), $unsigned($random), $unsigned($random), $unsigned($random),
+					     $unsigned($random), $unsigned($random), $unsigned($random), $unsigned($random)};
 			//end
 
 			//1 : begin
