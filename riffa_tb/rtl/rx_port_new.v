@@ -120,13 +120,14 @@ module rx_port_new #(
 
 `include "functions.vh"
 
-    localparam C_ROTATE_BITS = clog2s(C_DATA_WIDTH/32);
-    localparam C_NUM_MUXES = (C_DATA_WIDTH/32);
+    localparam C_NUM_MUXES =  4*(C_DATA_WIDTH/129+1);
+    localparam C_ROTATE_BITS = clog2s(C_NUM_MUXES);
+    localparam C_RD_SHIFT_BITS = clog2s(C_NUM_MUXES/4);
     localparam C_AGGREGATE_WIDTH = C_DATA_WIDTH;
     localparam C_SELECT_WIDTH = C_DATA_WIDTH/32;
 
 
-wire	[C_DATA_WIDTH-1:0]					wPackedSgRxData;
+wire	[C_NUM_MUXES*32-1:0]					wPackedSgRxData;
 wire	[C_NUM_MUXES-1:0]					_wen;
 reg	[C_NUM_MUXES-1:0]					wen, wWenDefault;
 wire								wPackedSgRxDone;
@@ -134,17 +135,23 @@ wire								wPackedSgRxErr;
 wire								wSgRxFlush;
 reg  [C_ROTATE_BITS-1:0]				        _wfifoSelect;
 reg  [C_ROTATE_BITS-1:0]					wfifoSelect;
-reg  [C_ROTATE_BITS-1:0]           				_rDataInEn;
-reg  [C_ROTATE_BITS-1:0]           				rDataInEn;
+reg  [C_RD_SHIFT_BITS-1:0]					_wRdShift;
+reg  [C_RD_SHIFT_BITS-1:0]					wRdShift;
+reg  [C_SELECT_WIDTH-1:0]           				_rDataInEn;
+reg  [C_SELECT_WIDTH-1:0]           				rDataInEn;
 
-reg [C_SELECT_WIDTH-1:0]            				wSelectRotated[C_NUM_MUXES-1:0], _wSelectRotated[C_NUM_MUXES-1:0];
+reg [C_NUM_MUXES-1:0]            				wSelectRotated[C_NUM_MUXES-1:0], _wSelectRotated[C_NUM_MUXES-1:0];
 wire								wSgRxFlushed;
 reg  [C_DATA_WIDTH-1:0] 					_rDataIn;		 
 reg  [C_DATA_WIDTH-1:0] 					rDataIn;		 
 
-wire								wSgRxDataRen;
-wire								wSgRxDataEmpty[C_NUM_MUXES-1:0];
-wire [C_DATA_WIDTH-1:0]						wSgRxData;
+wire 								wSgRxDataRen[C_DATA_WIDTH/129:0];
+wire 								wBuf128Ren;
+wire [C_NUM_MUXES-1:0]						wSgRxDataEmpty;
+wire 								wBuf128Empty;
+wire [C_NUM_MUXES/4-1:0]					wBuf128EmptyArray;
+wire [C_NUM_MUXES*32-1:0]					wSgRxData;
+wire [127:0]							wBuf128RdData;
 
 reg		[4:0]						rWideRst=0;
 reg									rRst=0;
@@ -166,8 +173,8 @@ end
             rotate
                  #(
                    // Parameters
-                   .C_DIRECTION         ("LEFT"),
-                   .C_WIDTH             ((C_DATA_WIDTH/32))
+                   .C_DIRECTION         ("RIGHT"),
+                   .C_WIDTH             (C_NUM_MUXES)
                    /*AUTOINSTPARAM*/)
             select_rotate_inst_
                  (
@@ -185,7 +192,7 @@ end
          #(
            // Parameters
            .C_DIRECTION         ("LEFT"),
-           .C_WIDTH             ((C_DATA_WIDTH/32))
+           .C_WIDTH             (C_NUM_MUXES)
            /*AUTOINSTPARAM*/)
     fifo_select_rotate
          (
@@ -197,7 +204,7 @@ end
           /*AUTOINST*/);
 
     generate
-        for (i = 0; i < C_DATA_WIDTH/32; i = i + 1) begin : gen_multiplexers
+        for (i = 0; i < C_NUM_MUXES; i = i + 1) begin : gen_multiplexers
             one_hot_mux
                  #(
                    .C_DATA_WIDTH        (32),
@@ -228,6 +235,7 @@ always @ (posedge CLK) begin
 	rDataIn <= #1 _rDataIn;
 	rDataInEn <= #1 (rRst ? {C_ROTATE_BITS{1'b0}} : _rDataInEn);
 	wfifoSelect <= #1 (rRst ? 0 : _wfifoSelect);
+	wRdShift <= #1 (rRst ? 0 : _wRdShift);
 	wen <= #1 (rRst ? 0 : _wen);
 end
 
@@ -235,77 +243,104 @@ always @ (*) begin
 	// Buffer and mask the input data.
 	_rDataIn = SG_RX_DATA;
 	_rDataInEn = SG_RX_DATA_EN;
-	_wfifoSelect = wfifoSelect+rDataInEn; // wfifoSelect is 2 bits (so rollover automatically happens)
+	_wfifoSelect = wfifoSelect+_rDataInEn; // wfifoSelect is 2 bits (so rollover automatically happens)
 
- 	case (SG_RX_DATA_EN) // TODO Generalise it for 256/512 bits as well
- 	  0 : wWenDefault = 4'b0000; 
- 	  1 : wWenDefault = 4'b0001; 
- 	  2 : wWenDefault = 4'b0011; 
- 	  3 : wWenDefault = 4'b0111; 
- 	  4 : wWenDefault = 4'b1111; 
- 	  default : $display("Error in rDataInEn"); 
- 	endcase 
+	if (rRst) 
+		_wRdShift = 0;
+	if (C_DATA_WIDTH <= 128)
+		_wRdShift = 0;
+	else if (SG_ELEM_REN == 1)
+		_wRdShift = wRdShift+1;
+
+ 	 //wWenDefault = {C_DATA_WIDTH/32{SG_RX_DATA_EN}}; 
+ 	 wWenDefault = (1<<SG_RX_DATA_EN)-1; 
 
 end 
 
-(* RAM_STYLE="BLOCK" *)
-sync_fifo #(.C_WIDTH(32), .C_DEPTH(C_SG_FIFO_DEPTH), .C_PROVIDE_COUNT(1)) sgRxFifo_0 (
-	.RST(rRst),
-	.CLK(CLK),
-	.WR_EN(wen[0:0]),
-	.WR_DATA(wPackedSgRxData[31:0]),
-	.FULL(),
-	.RD_EN(wSgRxDataRen),
-	.RD_DATA(wSgRxData[31:0]),
-	.EMPTY(wSgRxDataEmpty[0]),
-	.COUNT()
-);
+    generate
+        for (i = 0; i < 4*(C_DATA_WIDTH/129+1); i = i + 1) begin : gen_fifos
+	   (* RAM_STYLE="BLOCK" *)
+	   sync_fifo #(.C_WIDTH(32), .C_DEPTH(C_SG_FIFO_DEPTH), .C_PROVIDE_COUNT(1)) sgRxFifo_ 
+                 (
+		   .RST(rRst),
+		   .CLK(CLK),
+		   .WR_EN(wen[i:i]),
+		   .WR_DATA(wPackedSgRxData[32*(i+1)-1:32*i]),
+		   .FULL(),
+		   .RD_EN(wSgRxDataRen[i/4] && ~wSgRxDataEmpty[4*(i/5+1)-1:4*(i/5+1)-1]),
+		   .RD_DATA(wSgRxData[32*(i+1)-1:32*i]),
+		   .EMPTY(wSgRxDataEmpty[i:i]),
+		   .COUNT()
+                  );
+        end
+    endgenerate
 
-(* RAM_STYLE="BLOCK" *)
-sync_fifo #(.C_WIDTH(32), .C_DEPTH(C_SG_FIFO_DEPTH), .C_PROVIDE_COUNT(1)) sgRxFifo_1 (
-	.RST(rRst),
-	.CLK(CLK),
-	.WR_EN(wen[1:1]),
-	.WR_DATA(wPackedSgRxData[63:32]),
-	.FULL(),
-	.RD_EN(wSgRxDataRen),
-	.RD_DATA(wSgRxData[63:32]),
-	.EMPTY(wSgRxDataEmpty[1]),
-	.COUNT()
-);
+// Multiple bits to 1 conversion => Requires MUX logic (else range unbound error)
+//assign wBuf128Empty = wSgRxDataEmpty[4*(wRdShift+1)-1:4*(wRdShift+1)-1];
 
-(* RAM_STYLE="BLOCK" *)
-sync_fifo #(.C_WIDTH(32), .C_DEPTH(C_SG_FIFO_DEPTH), .C_PROVIDE_COUNT(1)) sgRxFifo_2 (
-	.RST(rRst),
-	.CLK(CLK),
-	.WR_EN(wen[2:2]),
-	.WR_DATA(wPackedSgRxData[95:64]),
-	.FULL(),
-	.RD_EN(wSgRxDataRen),
-	.RD_DATA(wSgRxData[95:64]),
-	.EMPTY(wSgRxDataEmpty[2]),
-	.COUNT()
-);
+    generate
+        for (i = 0; i < C_NUM_MUXES/4; i = i + 1) begin : gen_rx_data_ren
+	    assign wSgRxDataRen[i] = (i==wRdShift) ? wBuf128Ren : 0;
+        end
+    endgenerate
 
-(* RAM_STYLE="BLOCK" *)
-sync_fifo #(.C_WIDTH(32), .C_DEPTH(C_SG_FIFO_DEPTH), .C_PROVIDE_COUNT(1)) sgRxFifo_3 (
-	.RST(rRst),
-	.CLK(CLK),
-	.WR_EN(wen[3:3]),
-	.WR_DATA(wPackedSgRxData[127:96]),
-	.FULL(),
-	.RD_EN(wSgRxDataRen),
-	.RD_DATA(wSgRxData[127:96]),
-	.EMPTY(wSgRxDataEmpty[3]),
-	.COUNT()
-);
+    if (C_DATA_WIDTH <= 128) begin
+    assign wBuf128Empty = wSgRxDataEmpty[3:3];
+    assign wBuf128RdData = wSgRxData;
+    end
+    
+    generate 
+	if (C_DATA_WIDTH > 128) begin
 
-sg_list_reader_128 #(.C_DATA_WIDTH(C_DATA_WIDTH)) sgListReader (
+	for (i = 0; i < C_NUM_MUXES/4; i = i + 1) begin : gen_rx_data_ren
+	    assign wBuf128EmptyArray[i:i] = wSgRxDataEmpty[4*(i+1)-1:4*(i+1)-1];
+        end
+
+
+    	mux
+    	     #(
+    	       .C_NUM_INPUTS        (C_NUM_MUXES/4),
+    	       /*AUTOINSTPARAM*/
+    	       // Parameters
+    	       .C_CLOG_NUM_INPUTS   (C_RD_SHIFT_BITS),
+    	       .C_WIDTH   	    (1),
+	       .C_MUX_TYPE          ("SELECT"))
+    	mux_inst_fifo_empty
+    	     (
+    	      // Inputs
+    	      .MUX_SELECT       (wRdShift),
+    	      // Outputs
+    	      .MUX_OUTPUT       (wBuf128Empty),
+    	      .MUX_INPUTS       (wBuf128EmptyArray)
+    	      /*AUTOINST*/);
+
+    	mux
+    	     #(
+    	       .C_NUM_INPUTS        (C_NUM_MUXES/4),
+    	       /*AUTOINSTPARAM*/
+    	       // Parameters
+    	       .C_CLOG_NUM_INPUTS   (C_RD_SHIFT_BITS),
+    	       .C_WIDTH   	    (128),
+	       .C_MUX_TYPE          ("SELECT"))
+    	mux_inst_fifo_data
+    	     (
+    	      // Inputs
+    	      .MUX_SELECT       (wRdShift),
+    	      // Outputs
+    	      .MUX_OUTPUT       (wBuf128RdData),
+    	      .MUX_INPUTS       (wSgRxData)
+    	      /*AUTOINST*/);
+	end
+    endgenerate
+
+// TODO read logic for 256/512 logic to be updated
+// currently C_DATA_WIDTH parameter is fixed, so need to pass
+sg_list_reader_128 sgListReader (
 	.CLK(CLK),
 	.RST(rRst),
-	.BUF_DATA(wSgRxData),
-	.BUF_DATA_EMPTY(wSgRxDataEmpty[0] | wSgRxDataEmpty[1] | wSgRxDataEmpty[2] | wSgRxDataEmpty[3]),
-	.BUF_DATA_REN(wSgRxDataRen),
+	.BUF_DATA(wBuf128RdData),
+	.BUF_DATA_EMPTY(wBuf128Empty), 
+	.BUF_DATA_REN(wBuf128Ren),
 	.VALID(SG_ELEM_RDY),
 	.EMPTY(),
 	.REN(SG_ELEM_REN),
