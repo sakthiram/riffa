@@ -128,19 +128,19 @@ module rx_port_new #(
 
 
 wire	[C_NUM_MUXES*32-1:0]					wPackedSgRxData;
-wire	[C_NUM_MUXES-1:0]					_wen;
-reg	[C_NUM_MUXES-1:0]					wen, wWenDefault;
+wire	[C_NUM_MUXES-1:0]					wWenShifted;
+reg	[C_NUM_MUXES-1:0]					rWen, rWenDefault;
 wire								wPackedSgRxDone;
 wire								wPackedSgRxErr;
 wire								wSgRxFlush;
-reg  [C_ROTATE_BITS-1:0]				        _wfifoSelect;
-reg  [C_ROTATE_BITS-1:0]					wfifoSelect;
-reg  [C_RD_SHIFT_BITS-1:0]					_wRdShift;
-reg  [C_RD_SHIFT_BITS-1:0]					wRdShift;
+reg  [C_ROTATE_BITS-1:0]				        _rFifoSelect;
+reg  [C_ROTATE_BITS-1:0]					rFifoSelect;
+reg  [C_RD_SHIFT_BITS-1:0]					_rRdShift;
+reg  [C_RD_SHIFT_BITS-1:0]					rRdShift;
 reg  [C_SELECT_WIDTH-1:0]           				_rDataInEn;
 reg  [C_SELECT_WIDTH-1:0]           				rDataInEn;
 
-reg [C_NUM_MUXES-1:0]            				wSelectRotated[C_NUM_MUXES-1:0], _wSelectRotated[C_NUM_MUXES-1:0];
+reg [C_NUM_MUXES-1:0]            				rSelectRotated[C_NUM_MUXES-1:0], _rSelectRotated[C_NUM_MUXES-1:0];
 wire								wSgRxFlushed;
 reg  [C_DATA_WIDTH-1:0] 					_rDataIn;		 
 reg  [C_DATA_WIDTH-1:0] 					rDataIn;		 
@@ -154,7 +154,7 @@ wire [C_NUM_MUXES*32-1:0]					wSgRxData;
 wire [127:0]							wBuf128RdData;
 
 reg		[4:0]						rWideRst=0;
-reg									rRst=0;
+reg								rRst=0;
 
 // Generate a wide reset from the input reset.
 always @ (posedge CLK) begin
@@ -179,9 +179,9 @@ end
             select_rotate_inst_
                  (
                   // Outputs
-                  .RD_DATA               (_wSelectRotated[i]),
+                  .RD_DATA               (_rSelectRotated[i]),
                   // Inputs
-                  .WR_DATA               (wSelectRotated[i]),
+                  .WR_DATA               (rSelectRotated[i]),
                   .WR_SHIFTAMT           (rDataInEn[C_ROTATE_BITS-1:0])
                   /*AUTOINST*/);
         end
@@ -197,10 +197,10 @@ end
     fifo_select_rotate
          (
           // Outputs
-          .RD_DATA               (_wen),
+          .RD_DATA               (wWenShifted),
           // Inputs
-          .WR_DATA               (wWenDefault),
-          .WR_SHIFTAMT           (wfifoSelect)
+          .WR_DATA               (rWenDefault),
+          .WR_SHIFTAMT           (rFifoSelect)
           /*AUTOINST*/);
 
     generate
@@ -215,7 +215,7 @@ end
             mux_inst_
                  (
                   // Inputs
-                  .ONE_HOT_SELECT       (wSelectRotated[i]),
+                  .ONE_HOT_SELECT       (rSelectRotated[i]),
                   // Outputs
                   .ONE_HOT_OUTPUT       (wPackedSgRxData[32*i +: 32]),
                   .ONE_HOT_INPUTS       (rDataIn)
@@ -226,7 +226,7 @@ end
     generate
         for (i = 0; i < C_NUM_MUXES; i = i + 1) begin : gen_mux_select
             always @(posedge CLK) begin
-		wSelectRotated[i] <= #1 (rRst ? 1<<i : _wSelectRotated[i]);
+		rSelectRotated[i] <= #1 (rRst ? 1<<i : _rSelectRotated[i]);
             end
         end
     endgenerate
@@ -234,26 +234,26 @@ end
 always @ (posedge CLK) begin
 	rDataIn <= #1 _rDataIn;
 	rDataInEn <= #1 (rRst ? {C_ROTATE_BITS{1'b0}} : _rDataInEn);
-	wfifoSelect <= #1 (rRst ? 0 : _wfifoSelect);
-	wRdShift <= #1 (rRst ? 0 : _wRdShift);
-	wen <= #1 (rRst ? 0 : _wen);
+	rFifoSelect <= #1 (rRst ? 0 : _rFifoSelect);
+	rRdShift <= #1 (rRst ? 0 : _rRdShift);
+	rWen <= #1 (rRst ? 0 : wWenShifted);
 end
 
 always @ (*) begin
 	// Buffer and mask the input data.
 	_rDataIn = SG_RX_DATA;
 	_rDataInEn = SG_RX_DATA_EN;
-	_wfifoSelect = wfifoSelect+_rDataInEn; // wfifoSelect is 2 bits (so rollover automatically happens)
+	_rFifoSelect = rFifoSelect+_rDataInEn; // rFifoSelect is 2 bits (so rollover automatically happens)
 
 	if (rRst) 
-		_wRdShift = 0;
+		_rRdShift = 0;
 	if (C_DATA_WIDTH <= 128)
-		_wRdShift = 0;
+		_rRdShift = 0;
 	else if (SG_ELEM_REN == 1)
-		_wRdShift = wRdShift+1;
+		_rRdShift = rRdShift+1;
 
- 	 //wWenDefault = {C_DATA_WIDTH/32{SG_RX_DATA_EN}}; 
- 	 wWenDefault = (1<<SG_RX_DATA_EN)-1; 
+ 	 //rWenDefault = {C_DATA_WIDTH/32{SG_RX_DATA_EN}}; 
+ 	 rWenDefault = (1<<SG_RX_DATA_EN)-1; 
 
 end 
 
@@ -264,7 +264,7 @@ end
                  (
 		   .RST(rRst),
 		   .CLK(CLK),
-		   .WR_EN(wen[i:i]),
+		   .WR_EN(rWen[i:i]),
 		   .WR_DATA(wPackedSgRxData[32*(i+1)-1:32*i]),
 		   .FULL(),
 		   .RD_EN(wSgRxDataRen[i/4] && ~wSgRxDataEmpty[4*(i/5+1)-1:4*(i/5+1)-1]),
@@ -276,11 +276,11 @@ end
     endgenerate
 
 // Multiple bits to 1 conversion => Requires MUX logic (else range unbound error)
-//assign wBuf128Empty = wSgRxDataEmpty[4*(wRdShift+1)-1:4*(wRdShift+1)-1];
+//assign wBuf128Empty = wSgRxDataEmpty[4*(rRdShift+1)-1:4*(rRdShift+1)-1];
 
     generate
         for (i = 0; i < C_NUM_MUXES/4; i = i + 1) begin : gen_rx_data_ren
-	    assign wSgRxDataRen[i] = (i==wRdShift) ? wBuf128Ren : 0;
+	    assign wSgRxDataRen[i] = (i==rRdShift) ? wBuf128Ren : 0;
         end
     endgenerate
 
@@ -308,7 +308,7 @@ end
     	mux_inst_fifo_empty
     	     (
     	      // Inputs
-    	      .MUX_SELECT       (wRdShift),
+    	      .MUX_SELECT       (rRdShift),
     	      // Outputs
     	      .MUX_OUTPUT       (wBuf128Empty),
     	      .MUX_INPUTS       (wBuf128EmptyArray)
@@ -325,7 +325,7 @@ end
     	mux_inst_fifo_data
     	     (
     	      // Inputs
-    	      .MUX_SELECT       (wRdShift),
+    	      .MUX_SELECT       (rRdShift),
     	      // Outputs
     	      .MUX_OUTPUT       (wBuf128RdData),
     	      .MUX_INPUTS       (wSgRxData)
