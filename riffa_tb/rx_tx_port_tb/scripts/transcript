@@ -1,0 +1,1502 @@
+# //  ModelSim SE-64 10.1d Nov  1 2012 Linux 4.4.0-36-generic
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -voptargs=+acc work.tb_top +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port -sv_seed 4102368143 +UVM_VERBOSITY=UVM_HIGH -do wave.do 
+# vsim +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port +UVM_VERBOSITY=UVM_HIGH -do wave.do -voptargs=+acc -sv_seed 4102368143 work.tb_top 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "rx_port_reader(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "tx_port_writer(fast)".
+# ** Warning: ../rtl/rx_port_128.v(235): (vopt-2685) [TFMPC] - Too few port connections for 'mainFifoWrCtrl'.  Expected 9, found 8.
+# ** Warning: ../rtl/rx_port_128.v(235): (vopt-2718) [TFMPC] - Missing connection for port 'FIFO_SELECT'.
+# ** Warning: ../rtl/rx_port_128.v(269): (vopt-2685) [TFMPC] - Too few port connections for 'sgRxFifoWrCtrl'.  Expected 9, found 8.
+# ** Warning: ../rtl/rx_port_128.v(269): (vopt-2718) [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: ../rtl/rx_port_128.v(309): (vopt-2685) [TFMPC] - Too few port connections for 'sgTxFifo'.  Expected 9, found 8.
+# ** Warning: ../rtl/rx_port_128.v(309): (vopt-2718) [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "sg_list_requester(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "tx_port_monitor_128(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "rx_port_requester_mux(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "tx_port_channel_gate_128(fast)".
+# ** Warning: ../tb_env/monitor.sv(136): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(139): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(142): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(143): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(36): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(39): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(42): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(44): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(48): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(51): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(54): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(56): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(101): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(104): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(106): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(110): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(113): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(115): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(119): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(122): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(124): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(127): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(133): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(137): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(141): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.tb_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top_if(fast)
+# Loading work.top(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.async_fifo_fwft(fast)
+# Loading work.async_fifo(fast)
+# Loading work.ram_2clk_1w_1r_v_unit(fast)
+# Loading work.ram_2clk_1w_1r(fast)
+# Loading work.async_cmp(fast)
+# Loading work.rd_ptr_empty(fast)
+# Loading work.wr_ptr_full(fast)
+# Loading work.muxed_fifo(fast__1)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# Loading work.tx_port_128(fast)
+# Loading work.tx_port_channel_gate_128(fast)
+# Loading work.async_fifo(fast__1)
+# Loading work.ram_2clk_1w_1r(fast__1)
+# Loading work.async_cmp(fast__1)
+# Loading work.rd_ptr_empty(fast__1)
+# Loading work.wr_ptr_full(fast__1)
+# Loading work.tx_port_monitor_128(fast)
+# Loading work.tx_port_buffer_128(fast)
+# Loading work.sync_fifo(fast__1)
+# Loading work.ram_1clk_1w_1r(fast__1)
+# Loading work.tx_port_writer(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) ../tb_env/top.sv(200): [PCDPC] - Port size (256 or 256) does not match connection size (128) for port 'SG_DATA'. The port definition is at: ../rtl/rx_port_128.v(72).
+#         Region: /tb_top/dut/rxPort
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(269): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgRxFifoWrCtrl
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(269): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(309): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgTxFifo
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(309): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(451): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: ../rtl/sg_list_reader_128.v(57).
+#         Region: /tb_top/dut/rxPort/sgListReader
+# Loading /opt/modelsim/modeltech/uvm-1.1c/linux_x86_64/uvm_dpi.so
+# Warning: Ignoring nested -do argument: "do wave.do"
+#  run -all 
+# ----------------------------------------------------------------
+# UVM-1.1c
+# (C) 2007-2012 Mentor Graphics Corporation
+# (C) 2007-2012 Cadence Design Systems, Inc.
+# (C) 2006-2012 Synopsys, Inc.
+# (C) 2011-2012 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test_addr_len_and_main_data_from_rx_port...
+# UVM_INFO ../tb_env/tb_env.sv(113) @ 0: uvm_test_top.env [LABEL] Started connect phase.
+# UVM_INFO ../tb_env/tb_env.sv(117) @ 0: uvm_test_top.env [LABEL] Finished connect phase.
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(272) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../tb_env/tb_env.sv(122) @ 0: uvm_test_top.env [LABEL] Started run phase.
+# UVM_INFO ../tb_env/tb_env.sv(143) @ 0: uvm_test_top.env [LABEL] Finished run phase.
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(27) @ 10000: uvm_test_top [] Hello World Start
+# UVM_INFO ../tb_env/monitor.sv(101) @ 150000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1925
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 150000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 185000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1931
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 185000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 185000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=cfef9a0761e7eecb data=f6c7d84d 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 210000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2558
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 210000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2558
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(173) @ 210000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2488
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=a1e7de479931741b data=c3f59071 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 235000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2659
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 235000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 235000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=288c9c42c528445c data=cfd895c3 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 240000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2655
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 240000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2655
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 240000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(101) @ 255000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2835
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 255000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2835
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(173) @ 260000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2787
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 260000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 260000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=e2c754e322c75a85 data=f2a71a72 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 260000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 285000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2955
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 285000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 285000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=3c8c2ec73275a101 data=bb53f666 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 285000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 310000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @3083
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 310000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 310000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=9fb34c2ee155299d data=3cd375bc 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 310000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 335000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @3203
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 335000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 335000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=62e539bb9ced178b data=733e365f 
+# UVM_INFO ../tb_env/monitor.sv(173) @ 360000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @3303
+# -----------------------------------
+# 
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(73) @ 447500: uvm_test_top [] Hello World End
+# UVM_INFO verilog_src/uvm-1.1c/src/base/uvm_objection.svh(1121) @ 447500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_ERROR ../tb_env/scoreboard.sv(97) @ 447500: uvm_test_top.env.sg_list_sb [actual_sg_list_fifo] found a leftover sg_pkt:  addr=9ad25a45cf5edc93 data=c636899f 
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   47
+# UVM_WARNING :    0
+# UVM_ERROR :    1
+# UVM_FATAL :    0
+# ** Report counts by id
+# []     2
+# [LABEL]     4
+# [Questa UVM]     3
+# [RNTST]     1
+# [TEST_DONE]     1
+# [actual_sg_list_fifo]     1
+# [sg_list_scoreboard]    21
+# [sg_rd_sb_subscriber]     8
+# [sg_wr_sb_subscriber]     7
+# ** Note: $finish    : /opt/modelsim/modeltech/linux_x86_64/../verilog_src/uvm-1.1c/src/base/uvm_root.svh(427)
+#    Time: 447500 ps  Iteration: 53  Instance: /tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /opt/modelsim/modeltech/linux_x86_64/../verilog_src/uvm-1.1c/src/base/uvm_root.svh line 427
+vsim -voptargs=+acc work.tb_top +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port -sv_seed 4102368143 +UVM_VERBOSITY=UVM_HIGH -do wave.do
+# vsim +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port +UVM_VERBOSITY=UVM_HIGH -do wave.do -voptargs=+acc -sv_seed 4102368143 work.tb_top 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.tb_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top_if(fast)
+# Loading work.top(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.async_fifo_fwft(fast)
+# Loading work.async_fifo(fast)
+# Loading work.ram_2clk_1w_1r_v_unit(fast)
+# Loading work.ram_2clk_1w_1r(fast)
+# Loading work.async_cmp(fast)
+# Loading work.rd_ptr_empty(fast)
+# Loading work.wr_ptr_full(fast)
+# Loading work.muxed_fifo(fast__1)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# Loading work.tx_port_128(fast)
+# Loading work.tx_port_channel_gate_128(fast)
+# Loading work.async_fifo(fast__1)
+# Loading work.ram_2clk_1w_1r(fast__1)
+# Loading work.async_cmp(fast__1)
+# Loading work.rd_ptr_empty(fast__1)
+# Loading work.wr_ptr_full(fast__1)
+# Loading work.tx_port_monitor_128(fast)
+# Loading work.tx_port_buffer_128(fast)
+# Loading work.sync_fifo(fast__1)
+# Loading work.ram_1clk_1w_1r(fast__1)
+# Loading work.tx_port_writer(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) ../tb_env/top.sv(200): [PCDPC] - Port size (256 or 256) does not match connection size (128) for port 'SG_DATA'. The port definition is at: ../rtl/rx_port_128.v(72).
+#         Region: /tb_top/dut/rxPort
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(269): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgRxFifoWrCtrl
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(269): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(309): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgTxFifo
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(309): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(451): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: ../rtl/sg_list_reader_128.v(57).
+#         Region: /tb_top/dut/rxPort/sgListReader
+# Loading /opt/modelsim/modeltech/uvm-1.1c/linux_x86_64/uvm_dpi.so
+# do wave.do 
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1c
+# (C) 2007-2012 Mentor Graphics Corporation
+# (C) 2007-2012 Cadence Design Systems, Inc.
+# (C) 2006-2012 Synopsys, Inc.
+# (C) 2011-2012 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test_addr_len_and_main_data_from_rx_port...
+# UVM_INFO ../tb_env/tb_env.sv(113) @ 0: uvm_test_top.env [LABEL] Started connect phase.
+# UVM_INFO ../tb_env/tb_env.sv(117) @ 0: uvm_test_top.env [LABEL] Finished connect phase.
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(272) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../tb_env/tb_env.sv(122) @ 0: uvm_test_top.env [LABEL] Started run phase.
+# UVM_INFO ../tb_env/tb_env.sv(143) @ 0: uvm_test_top.env [LABEL] Finished run phase.
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(27) @ 10000: uvm_test_top [] Hello World Start
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 150000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1925
+# -----------------------------------
+# 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 77
+run -all
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 150000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# UVM_INFO ../tb_env/monitor.sv(173) @ 185000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1931
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 185000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 185000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=cfef9a0761e7eecb data=f6c7d84d 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 210000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2558
+# -----------------------------------
+# 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 77
+run
+# UVM_INFO ../tb_env/monitor.sv(101) @ 210000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2558
+# -----------------------------------
+# 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 77
+run
+# UVM_INFO ../tb_env/monitor.sv(173) @ 210000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2488
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=a1e7de479931741b data=c3f59071 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -all
+# UVM_INFO ../tb_env/monitor.sv(173) @ 235000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2659
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 235000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 235000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=288c9c42c528445c data=cfd895c3 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 58
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 240000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2655
+# -----------------------------------
+# 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 77
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 240000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2655
+# -----------------------------------
+# 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 77
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+vsim -voptargs=+acc work.tb_top +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port -sv_seed 4102368143 +UVM_VERBOSITY=UVM_HIGH -do wave.do
+# vsim +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port +UVM_VERBOSITY=UVM_HIGH -do wave.do -voptargs=+acc -sv_seed 4102368143 work.tb_top 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.tb_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top_if(fast)
+# Loading work.top(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.async_fifo_fwft(fast)
+# Loading work.async_fifo(fast)
+# Loading work.ram_2clk_1w_1r_v_unit(fast)
+# Loading work.ram_2clk_1w_1r(fast)
+# Loading work.async_cmp(fast)
+# Loading work.rd_ptr_empty(fast)
+# Loading work.wr_ptr_full(fast)
+# Loading work.muxed_fifo(fast__1)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# Loading work.tx_port_128(fast)
+# Loading work.tx_port_channel_gate_128(fast)
+# Loading work.async_fifo(fast__1)
+# Loading work.ram_2clk_1w_1r(fast__1)
+# Loading work.async_cmp(fast__1)
+# Loading work.rd_ptr_empty(fast__1)
+# Loading work.wr_ptr_full(fast__1)
+# Loading work.tx_port_monitor_128(fast)
+# Loading work.tx_port_buffer_128(fast)
+# Loading work.sync_fifo(fast__1)
+# Loading work.ram_1clk_1w_1r(fast__1)
+# Loading work.tx_port_writer(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) ../tb_env/top.sv(200): [PCDPC] - Port size (256 or 256) does not match connection size (128) for port 'SG_DATA'. The port definition is at: ../rtl/rx_port_128.v(72).
+#         Region: /tb_top/dut/rxPort
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(269): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgRxFifoWrCtrl
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(269): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(309): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgTxFifo
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(309): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(451): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: ../rtl/sg_list_reader_128.v(57).
+#         Region: /tb_top/dut/rxPort/sgListReader
+# Loading /opt/modelsim/modeltech/uvm-1.1c/linux_x86_64/uvm_dpi.so
+# do wave.do 
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1c
+# (C) 2007-2012 Mentor Graphics Corporation
+# (C) 2007-2012 Cadence Design Systems, Inc.
+# (C) 2006-2012 Synopsys, Inc.
+# (C) 2011-2012 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test_addr_len_and_main_data_from_rx_port...
+# UVM_INFO ../tb_env/tb_env.sv(113) @ 0: uvm_test_top.env [LABEL] Started connect phase.
+# UVM_INFO ../tb_env/tb_env.sv(117) @ 0: uvm_test_top.env [LABEL] Finished connect phase.
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(272) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../tb_env/tb_env.sv(122) @ 0: uvm_test_top.env [LABEL] Started run phase.
+# UVM_INFO ../tb_env/tb_env.sv(143) @ 0: uvm_test_top.env [LABEL] Finished run phase.
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(27) @ 10000: uvm_test_top [] Hello World Start
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 150000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1925
+# -----------------------------------
+# 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 77
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+run -all
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 150000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+vlog -sv +incdir+../rtl +incdir+../tb_env ../tb_env/top.sv ../tb_env/tb_env.sv  ../tests/test_addr_len_and_main_data_from_rx_port.sv -timescale 1ns/1ns 
+# Model Technology ModelSim SE-64 vlog 10.1d Compiler 2012.11 Nov  1 2012
+# -- Compiling interface top_if
+# -- Compiling package top_sv_unit
+# -- Compiling module top
+# -- Compiling interface top_if
+# -- Compiling package tb_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1c Built-in)
+# ** Note: (vlog-2286) Using implicit +incdir+/opt/modelsim/modeltech/uvm-1.1c/../verilog_src/uvm-1.1c/src from import uvm_pkg
+# ** Warning: ../tb_env/monitor.sv(136): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(139): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(142): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(143): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(36): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(39): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(42): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(44): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(48): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(51): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(54): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(56): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(101): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(104): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(106): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(110): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(113): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(115): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(119): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(122): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(124): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(127): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(133): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(137): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(141): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# -- Compiling package test_pkg
+# -- Importing package tb_pkg
+# 
+# Top level modules:
+# 	top
+vlog -sv +incdir+../rtl +incdir+../tb_env ../tb_env/top.sv ../tb_env/tb_top.sv  -timescale 1ns/1ns 
+# Model Technology ModelSim SE-64 vlog 10.1d Compiler 2012.11 Nov  1 2012
+# -- Compiling interface top_if
+# -- Compiling package top_sv_unit
+# -- Compiling module top
+# -- Compiling interface top_if
+# -- Compiling module tb_top
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1c Built-in)
+# -- Importing package tb_pkg
+# -- Importing package test_pkg
+# 
+# Top level modules:
+# 	tb_top
+vsim -voptargs=+acc work.tb_top +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port -sv_seed 4102368143 +UVM_VERBOSITY=UVM_HIGH -do wave.do
+# vsim +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port +UVM_VERBOSITY=UVM_HIGH -do wave.do -voptargs=+acc -sv_seed 4102368143 work.tb_top 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: ../tb_env/monitor.sv(136): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(139): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(142): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(143): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(36): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(39): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(42): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(44): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(48): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(51): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(54): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(56): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(101): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(104): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(106): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(110): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(113): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(115): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(119): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(122): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(124): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(127): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(133): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(137): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(141): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.tb_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top_if(fast)
+# Loading work.top(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.async_fifo_fwft(fast)
+# Loading work.async_fifo(fast)
+# Loading work.ram_2clk_1w_1r_v_unit(fast)
+# Loading work.ram_2clk_1w_1r(fast)
+# Loading work.async_cmp(fast)
+# Loading work.rd_ptr_empty(fast)
+# Loading work.wr_ptr_full(fast)
+# Loading work.muxed_fifo(fast__1)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# Loading work.tx_port_128(fast)
+# Loading work.tx_port_channel_gate_128(fast)
+# Loading work.async_fifo(fast__1)
+# Loading work.ram_2clk_1w_1r(fast__1)
+# Loading work.async_cmp(fast__1)
+# Loading work.rd_ptr_empty(fast__1)
+# Loading work.wr_ptr_full(fast__1)
+# Loading work.tx_port_monitor_128(fast)
+# Loading work.tx_port_buffer_128(fast)
+# Loading work.sync_fifo(fast__1)
+# Loading work.ram_1clk_1w_1r(fast__1)
+# Loading work.tx_port_writer(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) ../tb_env/top.sv(200): [PCDPC] - Port size (256 or 256) does not match connection size (128) for port 'SG_DATA'. The port definition is at: ../rtl/rx_port_128.v(72).
+#         Region: /tb_top/dut/rxPort
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(269): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgRxFifoWrCtrl
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(269): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(309): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgTxFifo
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(309): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(451): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: ../rtl/sg_list_reader_128.v(57).
+#         Region: /tb_top/dut/rxPort/sgListReader
+# Loading /opt/modelsim/modeltech/uvm-1.1c/linux_x86_64/uvm_dpi.so
+# do wave.do 
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1c
+# (C) 2007-2012 Mentor Graphics Corporation
+# (C) 2007-2012 Cadence Design Systems, Inc.
+# (C) 2006-2012 Synopsys, Inc.
+# (C) 2011-2012 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test_addr_len_and_main_data_from_rx_port...
+# UVM_INFO ../tb_env/tb_env.sv(113) @ 0: uvm_test_top.env [LABEL] Started connect phase.
+# UVM_INFO ../tb_env/tb_env.sv(117) @ 0: uvm_test_top.env [LABEL] Finished connect phase.
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(272) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../tb_env/tb_env.sv(122) @ 0: uvm_test_top.env [LABEL] Started run phase.
+# UVM_INFO ../tb_env/tb_env.sv(143) @ 0: uvm_test_top.env [LABEL] Finished run phase.
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(27) @ 10000: uvm_test_top [] Hello World Start
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 150000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1925
+# -----------------------------------
+# 
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 77
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+run -all
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 150000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 69
+vsim -voptargs=+acc work.tb_top +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port -sv_seed 4102368143 +UVM_VERBOSITY=UVM_HIGH -do wave.do
+# vsim +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port +UVM_VERBOSITY=UVM_HIGH -do wave.do -voptargs=+acc -sv_seed 4102368143 work.tb_top 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.tb_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top_if(fast)
+# Loading work.top(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.async_fifo_fwft(fast)
+# Loading work.async_fifo(fast)
+# Loading work.ram_2clk_1w_1r_v_unit(fast)
+# Loading work.ram_2clk_1w_1r(fast)
+# Loading work.async_cmp(fast)
+# Loading work.rd_ptr_empty(fast)
+# Loading work.wr_ptr_full(fast)
+# Loading work.muxed_fifo(fast__1)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# Loading work.tx_port_128(fast)
+# Loading work.tx_port_channel_gate_128(fast)
+# Loading work.async_fifo(fast__1)
+# Loading work.ram_2clk_1w_1r(fast__1)
+# Loading work.async_cmp(fast__1)
+# Loading work.rd_ptr_empty(fast__1)
+# Loading work.wr_ptr_full(fast__1)
+# Loading work.tx_port_monitor_128(fast)
+# Loading work.tx_port_buffer_128(fast)
+# Loading work.sync_fifo(fast__1)
+# Loading work.ram_1clk_1w_1r(fast__1)
+# Loading work.tx_port_writer(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) ../tb_env/top.sv(200): [PCDPC] - Port size (256 or 256) does not match connection size (128) for port 'SG_DATA'. The port definition is at: ../rtl/rx_port_128.v(72).
+#         Region: /tb_top/dut/rxPort
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(269): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgRxFifoWrCtrl
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(269): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(309): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgTxFifo
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(309): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(451): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: ../rtl/sg_list_reader_128.v(57).
+#         Region: /tb_top/dut/rxPort/sgListReader
+# Loading /opt/modelsim/modeltech/uvm-1.1c/linux_x86_64/uvm_dpi.so
+# do wave.do 
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1c
+# (C) 2007-2012 Mentor Graphics Corporation
+# (C) 2007-2012 Cadence Design Systems, Inc.
+# (C) 2006-2012 Synopsys, Inc.
+# (C) 2011-2012 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test_addr_len_and_main_data_from_rx_port...
+# UVM_INFO ../tb_env/tb_env.sv(113) @ 0: uvm_test_top.env [LABEL] Started connect phase.
+# UVM_INFO ../tb_env/tb_env.sv(117) @ 0: uvm_test_top.env [LABEL] Finished connect phase.
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(272) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../tb_env/tb_env.sv(122) @ 0: uvm_test_top.env [LABEL] Started run phase.
+# UVM_INFO ../tb_env/tb_env.sv(143) @ 0: uvm_test_top.env [LABEL] Finished run phase.
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(27) @ 10000: uvm_test_top [] Hello World Start
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 150000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1925
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 150000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+vsim -voptargs=+acc work.tb_top +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port -sv_seed 4102368143 +UVM_VERBOSITY=UVM_HIGH -do wave.do
+# vsim +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port +UVM_VERBOSITY=UVM_HIGH -do wave.do -voptargs=+acc -sv_seed 4102368143 work.tb_top 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.tb_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top_if(fast)
+# Loading work.top(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.async_fifo_fwft(fast)
+# Loading work.async_fifo(fast)
+# Loading work.ram_2clk_1w_1r_v_unit(fast)
+# Loading work.ram_2clk_1w_1r(fast)
+# Loading work.async_cmp(fast)
+# Loading work.rd_ptr_empty(fast)
+# Loading work.wr_ptr_full(fast)
+# Loading work.muxed_fifo(fast__1)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# Loading work.tx_port_128(fast)
+# Loading work.tx_port_channel_gate_128(fast)
+# Loading work.async_fifo(fast__1)
+# Loading work.ram_2clk_1w_1r(fast__1)
+# Loading work.async_cmp(fast__1)
+# Loading work.rd_ptr_empty(fast__1)
+# Loading work.wr_ptr_full(fast__1)
+# Loading work.tx_port_monitor_128(fast)
+# Loading work.tx_port_buffer_128(fast)
+# Loading work.sync_fifo(fast__1)
+# Loading work.ram_1clk_1w_1r(fast__1)
+# Loading work.tx_port_writer(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) ../tb_env/top.sv(200): [PCDPC] - Port size (256 or 256) does not match connection size (128) for port 'SG_DATA'. The port definition is at: ../rtl/rx_port_128.v(72).
+#         Region: /tb_top/dut/rxPort
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(269): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgRxFifoWrCtrl
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(269): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(309): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgTxFifo
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(309): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(451): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: ../rtl/sg_list_reader_128.v(57).
+#         Region: /tb_top/dut/rxPort/sgListReader
+# Loading /opt/modelsim/modeltech/uvm-1.1c/linux_x86_64/uvm_dpi.so
+# do wave.do 
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1c
+# (C) 2007-2012 Mentor Graphics Corporation
+# (C) 2007-2012 Cadence Design Systems, Inc.
+# (C) 2006-2012 Synopsys, Inc.
+# (C) 2011-2012 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test_addr_len_and_main_data_from_rx_port...
+# UVM_INFO ../tb_env/tb_env.sv(113) @ 0: uvm_test_top.env [LABEL] Started connect phase.
+# UVM_INFO ../tb_env/tb_env.sv(117) @ 0: uvm_test_top.env [LABEL] Finished connect phase.
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(272) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../tb_env/tb_env.sv(122) @ 0: uvm_test_top.env [LABEL] Started run phase.
+# UVM_INFO ../tb_env/tb_env.sv(143) @ 0: uvm_test_top.env [LABEL] Finished run phase.
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(27) @ 10000: uvm_test_top [] Hello World Start
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# UVM_INFO ../tb_env/monitor.sv(101) @ 150000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1925
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 150000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+run -all
+# Break in Task tb_pkg/wr_monitor::run_phase at ../tb_env/monitor.sv line 60
+vlog -sv +incdir+../rtl +incdir+../tb_env ../tb_env/top.sv ../tb_env/tb_env.sv  ../tests/test_addr_len_and_main_data_from_rx_port.sv -timescale 1ns/1ns
+# Model Technology ModelSim SE-64 vlog 10.1d Compiler 2012.11 Nov  1 2012
+# -- Compiling interface top_if
+# -- Compiling package top_sv_unit
+# -- Compiling module top
+# -- Compiling interface top_if
+# -- Compiling package tb_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1c Built-in)
+# ** Note: (vlog-2286) Using implicit +incdir+/opt/modelsim/modeltech/uvm-1.1c/../verilog_src/uvm-1.1c/src from import uvm_pkg
+# ** Warning: ../tb_env/monitor.sv(136): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(139): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(142): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(143): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(36): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(39): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(42): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(44): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(48): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(51): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(54): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(56): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(101): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(104): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(106): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(110): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(113): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(115): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(119): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(122): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(124): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(127): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(133): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(137): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(141): (vlog-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# -- Compiling package test_pkg
+# -- Importing package tb_pkg
+# 
+# Top level modules:
+# 	top
+vlog -sv +incdir+../rtl +incdir+../tb_env ../tb_env/top.sv ../tb_env/tb_top.sv  -timescale 1ns/1ns
+# Model Technology ModelSim SE-64 vlog 10.1d Compiler 2012.11 Nov  1 2012
+# -- Compiling interface top_if
+# -- Compiling package top_sv_unit
+# -- Compiling module top
+# -- Compiling interface top_if
+# -- Compiling module tb_top
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1c Built-in)
+# -- Importing package tb_pkg
+# -- Importing package test_pkg
+# 
+# Top level modules:
+# 	tb_top
+vsim -voptargs=+acc work.tb_top +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port -sv_seed 4102368143 +UVM_VERBOSITY=UVM_HIGH -do wave.do; run -all
+# vsim +UVM_TESTNAME=test_addr_len_and_main_data_from_rx_port +UVM_VERBOSITY=UVM_HIGH -do wave.do -voptargs=+acc -sv_seed 4102368143 work.tb_top 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: ../tb_env/monitor.sv(136): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(139): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(142): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/monitor.sv(143): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(36): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(39): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(42): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(44): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(48): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(51): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(54): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(56): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_release' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(101): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(104): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(106): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(110): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(113): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(115): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(119): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(122): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(124): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(127): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_read' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(133): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(137): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# ** Warning: ../tb_env/driver.sv(141): (vopt-2240) Treating stand-alone use of function 'uvm_hdl_force' as an implicit VOID cast.
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.tb_pkg(fast)
+# Loading work.test_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top_if(fast)
+# Loading work.top(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.async_fifo_fwft(fast)
+# Loading work.async_fifo(fast)
+# Loading work.ram_2clk_1w_1r_v_unit(fast)
+# Loading work.ram_2clk_1w_1r(fast)
+# Loading work.async_cmp(fast)
+# Loading work.rd_ptr_empty(fast)
+# Loading work.wr_ptr_full(fast)
+# Loading work.muxed_fifo(fast__1)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# Loading work.tx_port_128(fast)
+# Loading work.tx_port_channel_gate_128(fast)
+# Loading work.async_fifo(fast__1)
+# Loading work.ram_2clk_1w_1r(fast__1)
+# Loading work.async_cmp(fast__1)
+# Loading work.rd_ptr_empty(fast__1)
+# Loading work.wr_ptr_full(fast__1)
+# Loading work.tx_port_monitor_128(fast)
+# Loading work.tx_port_buffer_128(fast)
+# Loading work.sync_fifo(fast__1)
+# Loading work.ram_1clk_1w_1r(fast__1)
+# Loading work.tx_port_writer(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) ../tb_env/top.sv(200): [PCDPC] - Port size (256 or 256) does not match connection size (128) for port 'SG_DATA'. The port definition is at: ../rtl/rx_port_128.v(72).
+#         Region: /tb_top/dut/rxPort
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(269): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgRxFifoWrCtrl
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(269): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3017) ../rtl/rx_port_128.v(309): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /tb_top/dut/rxPort/sgTxFifo
+# ** Warning: (vsim-3722) ../rtl/rx_port_128.v(309): [TFMPC] - Missing connection for port 'FIFO_WR_EN'.
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(344): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: ../rtl/sg_rd_handler.v(55).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(361): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: ../rtl/sg_rd_handler.v(56).
+#         Region: /tb_top/dut/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) ../rtl/rx_port_128.v(451): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: ../rtl/sg_list_reader_128.v(57).
+#         Region: /tb_top/dut/rxPort/sgListReader
+# Loading /opt/modelsim/modeltech/uvm-1.1c/linux_x86_64/uvm_dpi.so
+# do wave.do 
+# ----------------------------------------------------------------
+# UVM-1.1c
+# (C) 2007-2012 Mentor Graphics Corporation
+# (C) 2007-2012 Cadence Design Systems, Inc.
+# (C) 2006-2012 Synopsys, Inc.
+# (C) 2011-2012 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test_addr_len_and_main_data_from_rx_port...
+# UVM_INFO ../tb_env/tb_env.sv(113) @ 0: uvm_test_top.env [LABEL] Started connect phase.
+# UVM_INFO ../tb_env/tb_env.sv(117) @ 0: uvm_test_top.env [LABEL] Finished connect phase.
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(272) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../tb_env/tb_env.sv(122) @ 0: uvm_test_top.env [LABEL] Started run phase.
+# UVM_INFO ../tb_env/tb_env.sv(143) @ 0: uvm_test_top.env [LABEL] Finished run phase.
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(27) @ 10000: uvm_test_top [] Hello World Start
+# UVM_INFO ../tb_env/monitor.sv(101) @ 150000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1925
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 150000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(101) @ 165000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2307
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 165000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2307
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(173) @ 185000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @1931
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 185000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 185000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=cfef9a0761e7eecb data=f6c7d84d 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 185000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(101) @ 210000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2558
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(173) @ 210000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2488
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=a1e7de479931741b data=c3f59071 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 210000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 235000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2659
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 235000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 235000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=288c9c42c528445c data=cfd895c3 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 235000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(101) @ 240000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2655
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 240000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2655
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 255000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2835
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(101) @ 255000: uvm_test_top.env.agent_sgrx_wr.sg_rx_wr_sub [sg_wr_sb_subscriber] Writing sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2835
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/monitor.sv(173) @ 260000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2787
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 260000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 260000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=e2c754e322c75a85 data=f2a71a72 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 260000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 285000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @2955
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 285000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 285000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=3c8c2ec73275a101 data=bb53f666 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 285000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 310000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @3083
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 310000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 310000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=9fb34c2ee155299d data=3cd375bc 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 310000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 335000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @3203
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 335000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 335000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=62e539bb9ced178b data=733e365f 
+# UVM_INFO ../tb_env/scoreboard.sv(41) @ 335000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got wr packet
+# UVM_INFO ../tb_env/monitor.sv(173) @ 360000: uvm_test_top.env.agent_sgrx_rd.sg_rx_rd_sub [sg_rd_sb_subscriber] Reading sg_packet.
+# -----------------------------------
+# Name    Type            Size  Value
+# -----------------------------------
+# sg_pkt  sg_list_packet  -     @3303
+# -----------------------------------
+# 
+# UVM_INFO ../tb_env/scoreboard.sv(43) @ 360000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] Main phase : Got Read packet
+# UVM_INFO ../tb_env/scoreboard.sv(51) @ 360000: uvm_test_top.env.sg_list_sb [sg_list_scoreboard] SG pkts matched: addr=9ad25a45cf5edc93 data=c636899f 
+# UVM_INFO ../tests/test_addr_len_and_main_data_from_rx_port.sv(73) @ 447500: uvm_test_top [] Hello World End
+# UVM_INFO verilog_src/uvm-1.1c/src/base/uvm_objection.svh(1121) @ 447500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   51
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# []     2
+# [LABEL]     4
+# [Questa UVM]     3
+# [RNTST]     1
+# [TEST_DONE]     1
+# [sg_list_scoreboard]    24
+# [sg_rd_sb_subscriber]     8
+# [sg_wr_sb_subscriber]     8
+# ** Note: $finish    : /opt/modelsim/modeltech/linux_x86_64/../verilog_src/uvm-1.1c/src/base/uvm_root.svh(427)
+#    Time: 447500 ps  Iteration: 53  Instance: /tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /opt/modelsim/modeltech/linux_x86_64/../verilog_src/uvm-1.1c/src/base/uvm_root.svh line 427

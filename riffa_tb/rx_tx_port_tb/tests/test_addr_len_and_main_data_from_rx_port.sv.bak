@@ -1,0 +1,28 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
+class test_addr_len_and_main_data_from_rx_port extends uvm_test;
+
+  `uvm_component_utils(test_addr_len_and_main_data_from_rx_port)
+  
+  bind_pkg::tb_env m_env;
+  
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+  endfunction
+  
+  function void build_phase(uvm_phase phase);
+    m_env = bind_pkg::tb_env::type_id::create("m_env", this);
+  endfunction
+  
+  task run_phase(uvm_phase phase);
+    phase.raise_objection(this);
+    #10;
+    `uvm_info("", "Hello World Start", UVM_MEDIUM)
+    #300
+    `uvm_info("", "Hello World End", UVM_MEDIUM)
+    phase.drop_objection(this);
+  endtask
+   
+endclass: test_addr_len_and_main_data_from_rx_port
+

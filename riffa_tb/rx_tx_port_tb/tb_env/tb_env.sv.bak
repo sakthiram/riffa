@@ -1,0 +1,96 @@
+package tb_pkg;
+  import uvm_pkg::*;
+  `include "uvm_macros.svh"
+  // The UVM sequence, transaction item, and driver are in these files:
+  `include "sequence.sv"
+  `include "driver.sv"
+  
+  // The agent contains sequencer, driver, and monitor (not included)
+  class wr_agent extends uvm_agent;
+    `uvm_component_utils(wr_agent)
+    
+    wr_driver driver;
+    uvm_sequencer#(wr_transaction) sequencer;
+    
+    function new(string name, uvm_component parent);
+      super.new(name, parent);
+    endfunction
+    
+    function void build_phase(uvm_phase phase);
+      driver = wr_driver ::type_id::create("driver", this);
+      sequencer =
+        uvm_sequencer#(wr_transaction)::type_id::create("sequencer", this);
+    endfunction    
+    
+    // In UVM connect phase, we connect the sequencer to the driver.
+    function void connect_phase(uvm_phase phase);
+      driver.seq_item_port.connect(sequencer.seq_item_export);
+    endfunction
+    
+    task run_phase(uvm_phase phase);
+      // We raise objection to keep the test from completing
+      phase.raise_objection(this);
+      begin
+        wr_sequence seq;
+        seq = wr_sequence::type_id::create("seq");
+        seq.start(sequencer);
+      end
+      // We drop objection to allow the test to complete
+      phase.drop_objection(this);
+    endtask
+
+  endclass
+  
+
+  //Defines
+  `define DATA_WIDTH 10'd256 
+  
+  //-------------------
+  // environment tb_env
+  //-------------------
+  class tb_env extends uvm_env;
+  
+    virtual top_if m_if;
+    wr_agent agent_sgrx_wr, agent_sgtx_wr, agent_main_wr;
+    `uvm_component_utils(tb_env)
+  
+    function new(string name, uvm_component parent = null);
+      super.new(name, parent);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
+      agent_sgrx_wr = wr_agent::type_id::create("agent_sgrx_wr", this);
+      agent_sgtx_wr = wr_agent::type_id::create("agent_sgtx_wr", this);
+      agent_main_wr = wr_agent::type_id::create("agent_main_wr", this);
+      agent_sgrx_wr.driver.fifo_type = "SG_RX";
+      agent_sgtx_wr.driver.fifo_type = "SG_TX";
+      agent_main_wr.driver.fifo_type = "MAIN";
+    endfunction
+
+  
+    function void connect_phase(uvm_phase phase);
+      `uvm_info("LABEL", "Started connect phase.", UVM_HIGH);
+      // Get the interface from the resource database.
+      assert(uvm_resource_db#(virtual top_if)::read_by_name(
+        get_full_name(), "top_if", m_if));
+      `uvm_info("LABEL", "Finished connect phase.", UVM_HIGH);
+    endfunction: connect_phase
+    
+    task run_phase(uvm_phase phase);
+      phase.raise_objection(this);
+      `uvm_info("LABEL", "Started run phase.", UVM_HIGH);
+      begin
+        //int a = 1'b1, b = 8'h3;
+        //@(m_if.cb);
+        //m_if.cb.SG_RX_DATA_EN <= a;
+        //repeat(2) @(m_if.cb);
+        //`uvm_info("RESULT", $sformatf("%0d + %0d = %0d",
+        //  a, b, m_if.cb.result), UVM_LOW);
+      end
+      `uvm_info("LABEL", "Finished run phase.", UVM_HIGH);
+      phase.drop_objection(this);
+    endtask: run_phase
+    
+  endclass
+ 
+endpackage

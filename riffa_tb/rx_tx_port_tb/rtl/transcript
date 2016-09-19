@@ -1,0 +1,1012 @@
+# //  ModelSim SE-64 10.1d Nov  1 2012 Linux 4.4.0-14-generic
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# reading /opt/modelsim/modeltech/linux_x86_64/../modelsim.ini
+# Loading project RIFFA
+# Compile of muxed_fifo.v failed with 1 errors.
+# Compile of muxed_fifo.v failed with 1 errors.
+# Compile of muxed_fifo.v failed with 1 errors.
+# Compile of muxed_fifo.v failed with 1 errors.
+# Compile of muxed_fifo.v failed with 1 errors.
+# Compile of muxed_fifo.v was successful.
+# Compile of sg_rd_handler.v failed with 1 errors.
+# Compile of sg_rd_handler.v was successful.
+# Compile of rx_port_128.v failed with 1 errors.
+# Compile of rx_port_128.v failed with 1 errors.
+# Compile of rx_port_128.v failed with 1 errors.
+# Compile of rx_port_128.v was successful.
+# Compile of rx_port_128_tb.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-2732) Module parameter 'C_DATA_WIDTH' not found for override at /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(384).
+# ** Error: (vopt-2732) Module parameter 'FIFO_TYPE' not found for override at /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178).
+# Optimization failed
+# Error loading design
+# Compile of rx_port_new_tb.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-2732) Module parameter 'C_DATA_WIDTH' not found for override at /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(384).
+# ** Error: (vopt-2732) Module parameter 'FIFO_TYPE' not found for override at /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178).
+# Optimization failed
+# Error loading design
+# Compile of rx_port_new_tb.v was successful.
+# Compile of rx_port_128_tb.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-2732) Module parameter 'C_DATA_WIDTH' not found for override at /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(384).
+# Optimization failed
+# Error loading design
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(230): (vopt-2912) Port 'WR_DATA_DONE' not found in module 'muxed_fifo' (5th connection).
+# ** Error: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(230): (vopt-2912) Port 'WR_DATA_ERR' not found in module 'muxed_fifo' (6th connection).
+# ** Error: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(249): (vopt-2912) Port 'WR_DATA_DONE' not found in module 'muxed_fifo' (5th connection).
+# ** Error: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(249): (vopt-2912) Port 'WR_DATA_ERR' not found in module 'muxed_fifo' (6th connection).
+# ** Error: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(268): (vopt-2912) Port 'WR_DATA_DONE' not found in module 'muxed_fifo' (5th connection).
+# ** Error: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(268): (vopt-2912) Port 'WR_DATA_ERR' not found in module 'muxed_fifo' (6th connection).
+# Optimization failed
+# Error loading design
+# Compile of muxed_fifo.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "rx_port_reader(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "sg_list_requester(fast)".
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(283): (vopt-2685) [TFMPC] - Too few port connections for 'sgRxRdHandler'.  Expected 8, found 6.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(283): (vopt-2718) [TFMPC] - Missing connection for port 'RST'.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(283): (vopt-2718) [TFMPC] - Missing connection for port 'CLK'.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(297): (vopt-2685) [TFMPC] - Too few port connections for 'sgTxRdHandler'.  Expected 8, found 6.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'RST'.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'CLK'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "rx_port_requester_mux(fast)".
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(230): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(230): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(249): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(249): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'FIFO_RD_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(61).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(249): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(268): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(268): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(283): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(53).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(283): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'FIFO_RD_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(54).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(283): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(283): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(297): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(53).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(297): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'FIFO_RD_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(54).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(297): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(297): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(387): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+add wave -position insertpoint  \
+sim:/rx_port_128_tb/ENG_DATA \
+sim:/rx_port_128_tb/SG_RX_DATA_EN \
+sim:/rx_port_128_tb/SG_RX_DONE \
+sim:/rx_port_128_tb/CLK \
+sim:/rx_port_128_tb/RST \
+sim:/rx_port_128_tb/state \
+sim:/rx_port_128_tb/wSgElemRen \
+sim:/rx_port_128_tb/wSgElemRdy \
+sim:/rx_port_128_tb/wSgElemAddr \
+sim:/rx_port_128_tb/wSgElemLen \
+sim:/rx_port_128_tb/rRst \
+sim:/rx_port_128_tb/wTxSgData \
+sim:/rx_port_128_tb/wTxSgDataEmpty \
+sim:/rx_port_128_tb/wTxSgDataRen \
+sim:/rx_port_128_tb/wTxSgDataRst \
+sim:/rx_port_128_tb/wTxSgDataErr \
+sim:/rx_port_128_tb/iPktCount
+add wave -position insertpoint  \
+sim:/rx_port_128_tb/rxPort/MAIN_DATA \
+sim:/rx_port_128_tb/rxPort/MAIN_DATA_EN \
+sim:/rx_port_128_tb/rxPort/MAIN_DONE \
+sim:/rx_port_128_tb/rxPort/MAIN_ERR \
+sim:/rx_port_128_tb/rxPort/SG_RX_DATA \
+sim:/rx_port_128_tb/rxPort/SG_RX_DATA_EN \
+sim:/rx_port_128_tb/rxPort/SG_RX_DONE \
+sim:/rx_port_128_tb/rxPort/SG_RX_ERR \
+sim:/rx_port_128_tb/rxPort/SG_TX_DATA \
+sim:/rx_port_128_tb/rxPort/SG_TX_DATA_EN \
+sim:/rx_port_128_tb/rxPort/SG_TX_DONE \
+sim:/rx_port_128_tb/rxPort/SG_TX_ERR \
+sim:/rx_port_128_tb/rxPort/CHNL_CLK \
+sim:/rx_port_128_tb/rxPort/CHNL_RX \
+sim:/rx_port_128_tb/rxPort/CHNL_RX_ACK \
+sim:/rx_port_128_tb/rxPort/CHNL_RX_LAST \
+sim:/rx_port_128_tb/rxPort/CHNL_RX_LEN \
+sim:/rx_port_128_tb/rxPort/CHNL_RX_OFF \
+sim:/rx_port_128_tb/rxPort/CHNL_RX_DATA \
+sim:/rx_port_128_tb/rxPort/CHNL_RX_DATA_VALID \
+sim:/rx_port_128_tb/rxPort/CHNL_RX_DATA_REN \
+sim:/rx_port_128_tb/rxPort/SG_ELEM_ADDR \
+sim:/rx_port_128_tb/rxPort/SG_ELEM_LEN \
+sim:/rx_port_128_tb/rxPort/SG_ELEM_RDY \
+sim:/rx_port_128_tb/rxPort/SG_ELEM_REN \
+sim:/rx_port_128_tb/rxPort/wPackedMainData \
+sim:/rx_port_128_tb/rxPort/wPackedMainWen \
+sim:/rx_port_128_tb/rxPort/wPackedMainDone \
+sim:/rx_port_128_tb/rxPort/wPackedMainErr \
+sim:/rx_port_128_tb/rxPort/wMainFlush \
+sim:/rx_port_128_tb/rxPort/wMainFlushed \
+sim:/rx_port_128_tb/rxPort/wPackedSgRxData \
+sim:/rx_port_128_tb/rxPort/wPackedSgRxWen \
+sim:/rx_port_128_tb/rxPort/wPackedSgRxDone \
+sim:/rx_port_128_tb/rxPort/wPackedSgRxErr \
+sim:/rx_port_128_tb/rxPort/wSgRxFlush \
+sim:/rx_port_128_tb/rxPort/wSgRxFlushed \
+sim:/rx_port_128_tb/rxPort/wPackedSgTxData \
+sim:/rx_port_128_tb/rxPort/wPackedSgTxWen \
+sim:/rx_port_128_tb/rxPort/wPackedSgTxDone \
+sim:/rx_port_128_tb/rxPort/wPackedSgTxErr \
+sim:/rx_port_128_tb/rxPort/wSgTxFlush \
+sim:/rx_port_128_tb/rxPort/wSgTxFlushed \
+sim:/rx_port_128_tb/rxPort/wMainDataRen \
+sim:/rx_port_128_tb/rxPort/wMainDataEmpty \
+sim:/rx_port_128_tb/rxPort/wMainData \
+sim:/rx_port_128_tb/rxPort/wSgRxRst \
+sim:/rx_port_128_tb/rxPort/wSgRxDataRen \
+sim:/rx_port_128_tb/rxPort/wSgRxDataEmpty \
+sim:/rx_port_128_tb/rxPort/wSgRxData \
+sim:/rx_port_128_tb/rxPort/wSgRxFifoCount \
+sim:/rx_port_128_tb/rxPort/wSgTxRst \
+sim:/rx_port_128_tb/rxPort/wSgTxFifoCount \
+sim:/rx_port_128_tb/rxPort/wSgRxReq \
+sim:/rx_port_128_tb/rxPort/wSgRxReqAddr \
+sim:/rx_port_128_tb/rxPort/wSgRxReqLen \
+sim:/rx_port_128_tb/rxPort/wSgTxReq \
+sim:/rx_port_128_tb/rxPort/wSgTxReqAddr \
+sim:/rx_port_128_tb/rxPort/wSgTxReqLen \
+sim:/rx_port_128_tb/rxPort/wSgRxReqProc \
+sim:/rx_port_128_tb/rxPort/wSgTxReqProc \
+sim:/rx_port_128_tb/rxPort/wMainReqProc \
+sim:/rx_port_128_tb/rxPort/wReqAck \
+sim:/rx_port_128_tb/rxPort/wSgElemRdy \
+sim:/rx_port_128_tb/rxPort/wSgElemRen \
+sim:/rx_port_128_tb/rxPort/wSgElemAddr \
+sim:/rx_port_128_tb/rxPort/wSgElemLen \
+sim:/rx_port_128_tb/rxPort/wSgRst \
+sim:/rx_port_128_tb/rxPort/wMainReq \
+sim:/rx_port_128_tb/rxPort/wMainReqAddr \
+sim:/rx_port_128_tb/rxPort/wMainReqLen \
+sim:/rx_port_128_tb/rxPort/wTxnErr \
+sim:/rx_port_128_tb/rxPort/wChnlRx \
+sim:/rx_port_128_tb/rxPort/wChnlRxRecvd \
+sim:/rx_port_128_tb/rxPort/wChnlRxAckRecvd \
+sim:/rx_port_128_tb/rxPort/wChnlRxLast \
+sim:/rx_port_128_tb/rxPort/wChnlRxLen \
+sim:/rx_port_128_tb/rxPort/wChnlRxOff \
+sim:/rx_port_128_tb/rxPort/wChnlRxConsumed \
+sim:/rx_port_128_tb/rxPort/rWideRst \
+sim:/rx_port_128_tb/rxPort/rRst \
+sim:/rx_port_128_tb/rxPort/wSgRxFifoRdEn \
+sim:/rx_port_128_tb/rxPort/wSgRxFifoRdData \
+sim:/rx_port_128_tb/rxPort/wSgRxFifoRdEmpty \
+sim:/rx_port_128_tb/rxPort/wSgTxFifoRdEn \
+sim:/rx_port_128_tb/rxPort/wSgTxFifoRdData \
+sim:/rx_port_128_tb/rxPort/wSgTxFifoRdEmpty
+add wave -position insertpoint  \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/CLK \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/RST \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/WR_DATA \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/WR_DATA_EN \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/WR_DATA_DONE \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/WR_DATA_ERR \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/FIFO_EMPTY \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/FIFO_RD_DATA \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/FIFO_RD_EN \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/wPackedSgData \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/wSgFlush \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/_rFifoSelect \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/rFifoSelect \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/rWideRst \
+sim:/rx_port_128_tb/rxPort/sgRxFifo/rRst
+add wave -position insertpoint  \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/CLK \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/RST \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/FIFO_RD_EN \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/FIFO_RD_DATA \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/FIFO_EMPTY \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/SG_DATA \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/SG_DATA_EMPTY \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/SG_DATA_REN \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/_rRdShift \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/rRdShift \
+sim:/rx_port_128_tb/rxPort/sgRxRdHandler/wBuf128EmptyArray
+run
+write format wave -window .main_pane.wave1.interior.cs.body.pw.wf /home/sakthi/wave_rx_port_128.do
+# Compile of rx_port_128.v failed with 1 errors.
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(294): (vopt-2685) [TFMPC] - Too few port connections for 'sgRxRdHandler'.  Expected 8, found 6.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(294): (vopt-2718) [TFMPC] - Missing connection for port 'RST'.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(294): (vopt-2718) [TFMPC] - Missing connection for port 'CLK'.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(308): (vopt-2685) [TFMPC] - Too few port connections for 'sgTxRdHandler'.  Expected 8, found 6.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(308): (vopt-2718) [TFMPC] - Missing connection for port 'RST'.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(308): (vopt-2718) [TFMPC] - Missing connection for port 'CLK'.
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(294): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(294): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(308): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(308): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(398): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+run
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(402): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+run
+write format wave -window .main_pane.wave1.interior.cs.body.pw.wf /home/sakthi/wave_rx_port_128.do
+# Causality operation skipped due to absense of debug database file
+# Compile of muxed_fifo.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(402): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+run
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(402): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# Compile of chnl_tester.v was successful.
+# Compile of cross_domain_signal.v was successful.
+# Compile of ff.v was successful.
+# Compile of fifo_packer_32.v was successful.
+# Compile of fifo_packer_64.v was successful.
+# Compile of fifo_packer_128.v was successful.
+# Compile of interrupt.v was successful.
+# Compile of interrupt_controller.v was successful.
+# Compile of pipeline.v was successful.
+# Compile of recv_credit_flow_ctrl.v was successful.
+# Compile of register.v was successful.
+# Compile of rx_port_channel_gate.v was successful.
+# Compile of rx_port_requester_mux.v was successful.
+# Compile of sg_list_reader_32.v was successful.
+# Compile of sg_list_reader_64.v was successful.
+# Compile of sg_list_reader_128.v was successful.
+# Compile of shiftreg.v was successful.
+# Compile of syncff.v was successful.
+# Compile of tx_engine_selector.v was successful.
+# Compile of tx_port_channel_gate_32.v was successful.
+# Compile of tx_port_channel_gate_64.v was successful.
+# Compile of tx_port_channel_gate_128.v was successful.
+# Compile of async_fifo.v was successful.
+# Compile of async_fifo_fwft.v was successful.
+# Compile of channel_32.v was successful.
+# Compile of channel_64.v was successful.
+# Compile of channel_128.v was successful.
+# Compile of counter.v was successful.
+# Compile of demux.v was successful.
+# Compile of engine_layer.v was successful.
+# Compile of fifo.v was successful.
+# Compile of mux.v was successful.
+# Compile of offset_flag_to_one_hot.v was successful.
+# Compile of offset_to_mask.v was successful.
+# Compile of one_hot_mux.v was successful.
+# Compile of ram_1clk_1w_1r.v was successful.
+# Compile of ram_2clk_1w_1r.v was successful.
+# Compile of registers.v was successful.
+# Compile of reorder_queue.v was successful.
+# Compile of reorder_queue_input.v was successful.
+# Compile of reorder_queue_output.v was successful.
+# Compile of reset_controller.v was successful.
+# Compile of rotate.v was successful.
+# Compile of rx_engine_classic.v was successful.
+# Compile of rx_engine_ultrascale.v was successful.
+# Compile of rx_port_32.v was successful.
+# Compile of rx_port_64.v was successful.
+# Compile of rx_port_128.v was successful.
+# Compile of rx_port_reader.v was successful.
+# Compile of rx_port_tb.v was successful.
+# Compile of rxc_engine_128.v was successful.
+# Compile of rxc_engine_classic.v was successful.
+# Compile of rxc_engine_ultrascale.v was successful.
+# Compile of rxr_engine_128.v was successful.
+# Compile of rxr_engine_classic.v was successful.
+# Compile of rxr_engine_ultrascale.v was successful.
+# Compile of scsdpram.v was successful.
+# Compile of sg_list_requester.v was successful.
+# Compile of sync_fifo.v was successful.
+# Compile of translation_altera.v was successful.
+# Compile of translation_xilinx.v was successful.
+# Compile of tx_alignment_pipeline.v was successful.
+# Compile of tx_data_fifo.v was successful.
+# Compile of tx_data_pipeline.v was successful.
+# Compile of tx_data_shift.v was successful.
+# Compile of tx_engine.v was successful.
+# Compile of tx_engine_classic.v was successful.
+# Compile of tx_engine_ultrascale.v was successful.
+# Compile of tx_hdr_fifo.v was successful.
+# Compile of tx_multiplexer.v was successful.
+# Compile of tx_multiplexer_32.v was successful.
+# Compile of tx_multiplexer_64.v was successful.
+# Compile of tx_multiplexer_128.v was successful.
+# Compile of tx_port_32.v was successful.
+# Compile of tx_port_64.v was successful.
+# Compile of tx_port_128.v was successful.
+# Compile of tx_port_buffer_32.v was successful.
+# Compile of tx_port_buffer_64.v was successful.
+# Compile of tx_port_buffer_128.v was successful.
+# Compile of tx_port_monitor_32.v was successful.
+# Compile of tx_port_monitor_64.v was successful.
+# Compile of tx_port_monitor_128.v was successful.
+# Compile of tx_port_writer.v was successful.
+# Compile of txc_engine_classic.v was successful.
+# Compile of txc_engine_ultrascale.v was successful.
+# Compile of txr_engine_classic.v was successful.
+# Compile of txr_engine_ultrascale.v was successful.
+# Compile of rx_SG_packer_reader_tb.v was successful.
+# Compile of functions.vh was successful.
+# Compile of rx_port_new.v was successful.
+# Compile of rx_port_new_tb.v was successful.
+# Compile of channel.v failed with 1 errors.
+# Compile of reset_extender.v failed with 1 errors.
+# Compile of riffa.v failed with 1 errors.
+# Compile of fifo_cyclic_array.v was successful.
+# Compile of mux_cyclic_array.v was successful.
+# Compile of muxed_fifo.v was successful.
+# Compile of rx_port_128_tb.v was successful.
+# Compile of sg_rd_handler.v was successful.
+# 99 compiles, 3 failed with 3 errors. 
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(402): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(403): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(403): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(295): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(295): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(311): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(311): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(402): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# Compile of sg_rd_handler.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(295): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(295): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(311): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(311): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(402): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# Compile of sg_rd_handler.v was successful.
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): (vopt-2685) [TFMPC] - Too few port connections for 'sgTxRdHandler'.  Expected 9, found 8.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): (vopt-2718) [TFMPC] - Missing connection for port 'SG_ELEM_REN'.
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3017) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3722) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [TFMPC] - Missing connection for port 'SG_ELEM_REN'.
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(403): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# Compile of rx_port_128.v was successful.
+vsim -voptargs=+acc work.rx_port_128_tb
+# vsim -voptargs=+acc work.rx_port_128_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): (vopt-2685) [TFMPC] - Too few port connections for 'sgTxRdHandler'.  Expected 9, found 8.
+# ** Warning: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): (vopt-2718) [TFMPC] - Missing connection for port 'SG_ELEM_REN'.
+# Loading sv_std.std
+# Loading work.rx_port_128_tb(fast)
+# Loading work.rx_port_128(fast)
+# Loading work.muxed_fifo(fast)
+# Loading work.mux_cyclic_array(fast)
+# Loading work.rotate_v_unit(fast)
+# Loading work.rotate(fast)
+# Loading work.one_hot_mux_v_unit(fast)
+# Loading work.one_hot_mux(fast)
+# Loading work.fifo_cyclic_array(fast)
+# Loading work.rotate(fast__1)
+# Loading work.sync_fifo(fast)
+# Loading work.ram_1clk_1w_1r_v_unit(fast)
+# Loading work.ram_1clk_1w_1r(fast)
+# Loading work.sg_rd_handler(fast)
+# Loading work.mux_v_unit(fast)
+# Loading work.mux(fast)
+# Loading work.mux_select(fast)
+# Loading work.mux(fast__1)
+# Loading work.mux_select(fast__1)
+# Loading work.sg_list_requester(fast)
+# Loading work.rx_port_requester_mux(fast)
+# Loading work.sg_list_reader_128(fast)
+# Loading work.rx_port_reader(fast)
+# Loading work.rx_port_channel_gate(fast)
+# Loading work.cross_domain_signal(fast)
+# Loading work.syncff(fast)
+# Loading work.ff(fast)
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128_tb.v(178): [PCDPC] - Port size (256 or 256) does not match connection size (1) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(72).
+#         Region: /rx_port_128_tb/rxPort
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(241): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'FIFO_RD_EN'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(62).
+#         Region: /rx_port_128_tb/rxPort/mainFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(260): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgRxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(279): [PCDPC] - Port size (8 or 8) does not match connection size (1) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/muxed_fifo.v(60).
+#         Region: /rx_port_128_tb/rxPort/sgTxFifo
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(296): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgRxRdHandler
+# ** Warning: (vsim-3017) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [TFMPC] - Too few port connections. Expected 9, found 8.
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'FIFO_EMPTY'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(55).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'SG_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_rd_handler.v(56).
+#         Region: /rx_port_128_tb/rxPort/sgTxRdHandler
+# ** Warning: (vsim-3722) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(312): [TFMPC] - Missing connection for port 'SG_ELEM_REN'.
+# ** Warning: (vsim-3015) /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/rx_port_128.v(403): [PCDPC] - Port size (128 or 128) does not match connection size (256) for port 'BUF_DATA'. The port definition is at: /home/sakthi/Desktop/riffa-devel-RIFFA-2.2.1/fpga/riffa_hdl/sg_list_reader_128.v(57).
+#         Region: /rx_port_128_tb/rxPort/sgListReader
+do /home/sakthi/wave_rx_port_128.do
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rWideRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 114
+# ** Error: (vish-4014) No objects found matching '/rx_port_128_tb/rxPort/sgRxFifo/rRst'.
+# Executing ONERROR command at macro /home/sakthi/wave_rx_port_128.do line 116
+run
+# FATAL ERROR: License connection lost and unable to reconnect after multiple attempts.

@@ -1,0 +1,309 @@
+`timescale 1ns/1ps
+//---------------------------------------
+// Interface for the rx_port_new DUT
+//---------------------------------------
+interface rx_port_new_if(
+	input CLK,
+	input RST,
+	input [2:0] CONFIG_MAX_READ_REQUEST_SIZE,				// Maximum read payload: 000=128B, 001=256B, 010=512B, 011=1024B, 100=2048B, 101=4096B
+
+	input SG_RX_BUF_RECVD,							// Scatter gather RX buffer completely read (ready for next if applicable)
+	input [31:0] SG_RX_BUF_DATA,					// Scatter gather RX buffer data
+	input SG_RX_BUF_LEN_VALID,						// Scatter gather RX buffer length valid
+	input SG_RX_BUF_ADDR_HI_VALID,					// Scatter gather RX buffer high address valid
+	input SG_RX_BUF_ADDR_LO_VALID,					// Scatter gather RX buffer low address valid
+
+	input SG_TX_BUF_RECVD,							// Scatter gather TX buffer completely read (ready for next if applicable)
+	input [31:0] SG_TX_BUF_DATA,					// Scatter gather TX buffer data
+	input SG_TX_BUF_LEN_VALID,						// Scatter gather TX buffer length valid
+	input SG_TX_BUF_ADDR_HI_VALID,					// Scatter gather TX buffer high address valid
+	input SG_TX_BUF_ADDR_LO_VALID,					// Scatter gather TX buffer low address valid
+
+	input [C_DATA_WIDTH-1:0] SG_DATA,				// Scatter gather TX buffer data
+	input SG_DATA_EMPTY,							// Scatter gather TX buffer data empty
+	input SG_DATA_REN,								// Scatter gather TX buffer data read enable
+	input SG_RST,									// Scatter gather TX buffer data reset
+	input SG_ERR,									// Scatter gather TX encountered an error
+	
+	input [31:0] TXN_DATA,							// Read transaction data
+	input TXN_LEN_VALID,							// Read transaction length valid
+	input TXN_OFF_LAST_VALID,						// Read transaction offset/last valid
+	input [31:0] TXN_DONE_LEN,						// Read transaction actual transfer length
+	input TXN_DONE,								// Read transaction done
+	input TXN_DONE_ACK,								// Read transaction actual transfer length read
+
+	input RX_REQ,									// Read request
+	input RX_REQ_ACK,								// Read request accepted
+	input [1:0] RX_REQ_TAG,						// Read request data tag 
+	input [63:0] RX_REQ_ADDR,						// Read request address
+	input [9:0] RX_REQ_LEN,						// Read request length
+
+	input [C_DATA_WIDTH-1:0] MAIN_DATA,				// Main incoming data 
+	input [C_DATA_WORD_WIDTH-1:0] MAIN_DATA_EN,		// Main incoming data enable
+	input MAIN_DONE,								// Main incoming data complete
+	input MAIN_ERR,									// Main incoming data completed with error
+	input [C_DATA_WIDTH-1:0] SG_RX_DATA,			// Scatter gather for RX incoming data 
+	input [C_DATA_WORD_WIDTH-1:0] SG_RX_DATA_EN,	// Scatter gather for RX incoming data enable
+	input SG_RX_DONE,								// Scatter gather for RX incoming data complete
+	input SG_RX_ERR,								// Scatter gather for RX incoming data completed with error
+	input [C_DATA_WIDTH-1:0] SG_TX_DATA,			// Scatter gather for TX incoming data 
+	input [C_DATA_WORD_WIDTH-1:0] SG_TX_DATA_EN,	// Scatter gather for TX incoming data enable
+	input SG_TX_DONE,								// Scatter gather for TX incoming data complete
+	input SG_TX_ERR,								// Scatter gather for TX incoming data completed with error
+
+	input CHNL_CLK,									// Channel read clock
+	input CHNL_RX,									// Channel read receive signal
+	input CHNL_RX_ACK,								// Channle read received signal
+	input CHNL_RX_LAST,							// Channel last read
+	input [31:0] CHNL_RX_LEN,						// Channel read length
+	input [30:0] CHNL_RX_OFF,						// Channel read offset
+	input [C_DATA_WIDTH-1:0] CHNL_RX_DATA,			// Channel read data
+	input CHNL_RX_DATA_VALID,						// Channel read data valid
+	input CHNL_RX_DATA_REN,							// Channel read data has been recieved
+	// newly added
+	input [63:0] SG_ELEM_ADDR,
+	input [31:0] SG_ELEM_LEN,
+	input SG_ELEM_RDY,
+	input  SG_ELEM_REN
+);
+
+  clocking cb @(posedge clk);
+	output CLK;
+	output RST;
+	output [2:0] CONFIG_MAX_READ_REQUEST_SIZE;				// Maximum read payload: 000=128B; 001=256B; 010=512B; 011=1024B; 100=2048B; 101=4096B
+
+	input SG_RX_BUF_RECVD;							// Scatter gather RX buffer completely read (ready for next if applicable)
+	output [31:0] SG_RX_BUF_DATA;					// Scatter gather RX buffer data
+	output SG_RX_BUF_LEN_VALID;						// Scatter gather RX buffer length valid
+	output SG_RX_BUF_ADDR_HI_VALID;					// Scatter gather RX buffer high address valid
+	output SG_RX_BUF_ADDR_LO_VALID;					// Scatter gather RX buffer low address valid
+
+	input SG_TX_BUF_RECVD;							// Scatter gather TX buffer completely read (ready for next if applicable)
+	output [31:0] SG_TX_BUF_DATA;					// Scatter gather TX buffer data
+	output SG_TX_BUF_LEN_VALID;						// Scatter gather TX buffer length valid
+	output SG_TX_BUF_ADDR_HI_VALID;					// Scatter gather TX buffer high address valid
+	output SG_TX_BUF_ADDR_LO_VALID;					// Scatter gather TX buffer low address valid
+
+	input [C_DATA_WIDTH-1:0] SG_DATA;				// Scatter gather TX buffer data
+	input SG_DATA_EMPTY;							// Scatter gather TX buffer data empty
+	output SG_DATA_REN;								// Scatter gather TX buffer data read enable
+	output SG_RST;									// Scatter gather TX buffer data reset
+	input SG_ERR;									// Scatter gather TX encountered an error
+	
+	output [31:0] TXN_DATA;							// Read transaction data
+	output TXN_LEN_VALID;							// Read transaction length valid
+	output TXN_OFF_LAST_VALID;						// Read transaction offset/last valid
+	input [31:0] TXN_DONE_LEN;						// Read transaction actual transfer length
+	input TXN_DONE;								// Read transaction done
+	output TXN_DONE_ACK;								// Read transaction actual transfer length read
+
+	input RX_REQ;									// Read request
+	output RX_REQ_ACK;								// Read request accepted
+	input [1:0] RX_REQ_TAG;						// Read request data tag 
+	input [63:0] RX_REQ_ADDR;						// Read request address
+	input [9:0] RX_REQ_LEN;						// Read request length
+
+	output [C_DATA_WIDTH-1:0] MAIN_DATA;				// Main incoming data 
+	output [C_DATA_WORD_WIDTH-1:0] MAIN_DATA_EN;		// Main incoming data enable
+	output MAIN_DONE;								// Main incoming data complete
+	output MAIN_ERR;									// Main incoming data completed with error
+	output [C_DATA_WIDTH-1:0] SG_RX_DATA;			// Scatter gather for RX incoming data 
+	output [C_DATA_WORD_WIDTH-1:0] SG_RX_DATA_EN;	// Scatter gather for RX incoming data enable
+	output SG_RX_DONE;								// Scatter gather for RX incoming data complete
+	output SG_RX_ERR;								// Scatter gather for RX incoming data completed with error
+	output [C_DATA_WIDTH-1:0] SG_TX_DATA;			// Scatter gather for TX incoming data 
+	output [C_DATA_WORD_WIDTH-1:0] SG_TX_DATA_EN;	// Scatter gather for TX incoming data enable
+	output SG_TX_DONE;								// Scatter gather for TX incoming data complete
+	output SG_TX_ERR;								// Scatter gather for TX incoming data completed with error
+
+	output CHNL_CLK;									// Channel read clock
+	input CHNL_RX;									// Channel read receive signal
+	output CHNL_RX_ACK;								// Channle read received signal
+	input CHNL_RX_LAST;							// Channel last read
+	input [31:0] CHNL_RX_LEN;						// Channel read length
+	input [30:0] CHNL_RX_OFF;						// Channel read offset
+	input [C_DATA_WIDTH-1:0] CHNL_RX_DATA;			// Channel read data
+	input CHNL_RX_DATA_VALID;						// Channel read data valid
+	output CHNL_RX_DATA_REN;							// Channel read data has been recieved
+	// newly added
+	input [63:0] SG_ELEM_ADDR;
+	input [31:0] SG_ELEM_LEN;
+	input SG_ELEM_RDY;
+	output  SG_ELEM_REN;
+  endclocking // cb
+
+endinterface: rx_port_new_if
+
+//---------------
+// Interface bind
+//---------------
+bind rx_port_new rx_port_new_if rx_port_new_if0(
+	.RST(RST), 
+	.CLK(CLK), 
+	.CONFIG_MAX_READ_REQUEST_SIZE(CONFIG_MAX_READ_REQUEST_SIZE), 
+	
+	.SG_RX_BUF_RECVD(SG_RX_BUF_RECVD),
+	.SG_RX_BUF_DATA(PIO_DATA),
+	.SG_RX_BUF_LEN_VALID(SG_RX_BUF_LEN_VALID),
+	.SG_RX_BUF_ADDR_HI_VALID(SG_RX_BUF_ADDR_HI_VALID),
+	.SG_RX_BUF_ADDR_LO_VALID(SG_RX_BUF_ADDR_LO_VALID),
+	
+	.SG_TX_BUF_RECVD(SG_TX_BUF_RECVD),
+	.SG_TX_BUF_DATA(PIO_DATA),
+	.SG_TX_BUF_LEN_VALID(SG_TX_BUF_LEN_VALID),
+	.SG_TX_BUF_ADDR_HI_VALID(SG_TX_BUF_ADDR_HI_VALID),
+	.SG_TX_BUF_ADDR_LO_VALID(SG_TX_BUF_ADDR_LO_VALID),
+	
+	.SG_DATA(SG_DATA),
+	.SG_DATA_EMPTY(SG_DATA_EMPTY),
+	.SG_DATA_REN(SG_DATA_REN),
+	.SG_RST(SG_RST),
+	.SG_ERR(SG_ERR),
+	
+	.TXN_DATA(PIO_DATA), 
+	.TXN_LEN_VALID(TXN_RX_LEN_VALID), 
+	.TXN_OFF_LAST_VALID(TXN_RX_OFF_LAST_VALID), 
+	.TXN_DONE_LEN(TXN_RX_DONE_LEN),
+	.TXN_DONE(TXN_RX_DONE),
+	.TXN_DONE_ACK(TXN_RX_DONE_ACK),
+	
+	.RX_REQ(RX_REQ),
+	.RX_REQ_ACK(RX_REQ_ACK),
+	.RX_REQ_TAG(RX_REQ_TAG),
+	.RX_REQ_ADDR(RX_REQ_ADDR),
+	.RX_REQ_LEN(RX_REQ_LEN),
+
+	.MAIN_DATA(ENG_DATA),
+	.MAIN_DATA_EN(MAIN_DATA_EN), 
+	.MAIN_DONE(MAIN_DONE), 
+	.MAIN_ERR(MAIN_ERR),
+	
+	.SG_RX_DATA(ENG_DATA),
+	.SG_RX_DATA_EN(SG_RX_DATA_EN), 
+	.SG_RX_DONE(SG_RX_DONE), 
+	.SG_RX_ERR(SG_RX_ERR),
+
+	.SG_TX_DATA(ENG_DATA),
+	.SG_TX_DATA_EN(SG_TX_DATA_EN), 
+	.SG_TX_DONE(SG_TX_DONE), 
+	.SG_TX_ERR(SG_TX_ERR),
+
+	.CHNL_CLK(CHNL_RX_CLK), 
+	.CHNL_RX(CHNL_RX), 
+	.CHNL_RX_ACK(CHNL_RX_ACK), 
+	.CHNL_RX_LAST(CHNL_RX_LAST), 
+	.CHNL_RX_LEN(CHNL_RX_LEN), 
+	.CHNL_RX_OFF(CHNL_RX_OFF), 
+	.CHNL_RX_DATA(CHNL_RX_DATA), 
+	.CHNL_RX_DATA_VALID(CHNL_RX_DATA_VALID), 
+	.CHNL_RX_DATA_REN(CHNL_RX_DATA_REN),
+
+	.SG_ELEM_ADDR(SG_ELEM_ADDR), 
+	.SG_ELEM_LEN(SG_ELEM_LEN),
+	.SG_ELEM_RDY(SG_ELEM_RDY),
+	.SG_ELEM_REN(SG_ELEM_REN)
+);
+
+/////////////////////////
+// TB starts 
+/////////////////////////
+
+module uvm_rx_port_new_tb;
+
+	parameter C_DATA_WIDTH = 10'd256;
+	parameter C_MAX_READ_REQ = 2;					// Max read: 000=128B, 001=256B, 010=512B, 011=1024B, 100=2048B, 101=4096B
+	// Local parameters
+	parameter C_RX_FIFO_DEPTH = 1024;
+	parameter C_TX_FIFO_DEPTH = 512;
+	parameter C_SG_FIFO_DEPTH = 1024;
+	parameter C_DATA_WORD_WIDTH = clog2((C_DATA_WIDTH/32)+1);
+
+rx_port_new #(
+	.C_DATA_WIDTH(C_DATA_WIDTH), 
+	.C_MAIN_FIFO_DEPTH(C_RX_FIFO_DEPTH), 
+	.C_SG_FIFO_DEPTH(C_SG_FIFO_DEPTH),
+	.C_MAX_READ_REQ(C_MAX_READ_REQ)
+) rxPort (
+	.RST(RST), 
+	.CLK(CLK), 
+	.SG_ELEM_REN(SG_ELEM_REN),
+	.ENG_DATA(ENG_DATA),
+	.SG_RX_DATA_EN(SG_RX_DATA_EN),
+	.SG_RX_DONE(SG_RX_DONE),
+	.SG_RX_ERR(SG_RX_ERR)
+)
+
+	// Generate a wide reset from the input reset.
+	always @ (posedge CLK) begin
+		rRst <= #1 rWideRst[4]; 
+		if (RST) 
+			rWideRst <= #1 5'b11111;
+		else 
+			rWideRst <= (rWideRst<<1);
+	end
+
+	// Generate clock
+	initial begin
+		CLK = 0;
+		#100;
+		forever #2.5 CLK = ~CLK;
+	end
+
+	initial begin
+	  environment = new("env");
+	  // Put the interface into the resource database.
+	  uvm_resource_db#(virtual rx_port_new_if)::set("env",
+	    "rx_port_new_if", rxPort.rx_port_new_if0);
+	  run_test();
+	end
+	
+	// Generate reset
+	initial begin
+		RST = 0;
+		#100;
+		RST = 1;
+		#5;
+		RST = 0;
+	end
+	
+endmodule
+
+
+///////////////////
+// Test Starts
+///////////////////
+
+class env extends uvm_env;
+
+  virtual rx_port_new_if m_if;
+
+  function new(string name, uvm_component parent = null);
+    super.new(name, parent);
+  endfunction
+  
+  function void connect_phase(uvm_phase phase);
+    `uvm_info("LABEL", "Started connect phase.", UVM_HIGH);
+    // Get the interface from the resource database.
+    assert(uvm_resource_db#(virtual rx_port_new_if)::read_by_name(
+      get_full_name(), "rx_port_new_if", m_if));
+    `uvm_info("LABEL", "Finished connect phase.", UVM_HIGH);
+  endfunction: connect_phase
+
+  task run_phase(uvm_phase phase);
+    phase.raise_objection(this);
+    `uvm_info("LABEL", "Started run phase.", UVM_HIGH);
+    begin
+      int a = 8'h2, b = 8'h3;
+      @(m_if.cb);
+      m_if.cb.a <= a;
+      m_if.cb.b <= b;
+      m_if.cb.doAdd <= 1'b1;
+      repeat(10) @(m_if.cb);
+      `uvm_info("RESULT", $sformatf("%0d + %0d = %0d",
+        a, b, m_if.cb.result), UVM_LOW);
+    end
+    `uvm_info("LABEL", "Finished run phase.", UVM_HIGH);
+    phase.drop_objection(this);
+  endtask: run_phase
+  
+endclass
